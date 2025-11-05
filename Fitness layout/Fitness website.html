@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Website</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #d8d2d2;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0e5e5;
+  padding: 15px 50px;
+  box-shadow: 0 2px 5px rgba(14, 13, 13, 0.1);
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  font-size: 20px;
+}
+/* Navbar Search Box */
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #131212;
+  border-radius: 10px;
+  padding: 10px;
+  overflow: hidden;
+  margin: 0 10px;
+  width: 200px;
+  transition: all 0.3s ease;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  flex: 1;
+  font-size: 1.2em;
+  width:50%;
+}
+
+.search-box button {
+  background: black;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #0f0f0f;
+  font-size: 1em;
+}
+.search-box:hover {
+  border-color: #0c0b0b;
+  box-shadow: 0 0 5px rgba(255,77,77,0.4);
+}
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .search-box {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+
+
+.register-btn {
+  background-color: #ff4d4d;
+  border: none;
+  padding: 20px 50px;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+/* Hero Section */
+.hero {
+  background: url(back\ image.png) center/cover no-repeat;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccbcbc;
+  color: rgb(250, 248, 248);
+  text-align: center;
+  position: relative;
+    filter: brightness(150%); /* 100% = normal, <100% = darker, >100% = brighter */
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.hero p {
+  font-size: 1em;
+}
+
+.hero-buttons {
+  margin-top: 20px;
+
+}
+
+.start-btn {
+    font-size: 20px;
+  background: #ff4d4d;
+  border: none;
+  padding: 10px 30px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.enquiry-btn {
+    font-size: 20px;
+  background: transparent;
+  border: 2px solid white;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.avatars img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-left: -10px;
+}
+
+.rating p {
+  margin-left: 15px;
+  font-size: 0.9em;
+  line-height: 1.3em;
+}
+
+.rating span {
+  font-size: 0.2em;
+  color: #ccc;
+}
+
+.description {
+  margin-top: 30px;
+  font-size: 0.5em;
+  color: #ddd;
+  line-height: 1;
+}
+
+
+.hero-subtext {
+  margin-top: 20px;
+  font-size: 0.9em;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Why Choose Us */
+.why-choose {
+  text-align: center;
+  padding: 10px 10px;
+  background: #f7f7f7;
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.feature-card {
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  width: 200px;
+  padding: 20px;
+}
+
+.feature-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* About */
+.about {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 50px;
+}
+
+.about-image img {
+  width: 500px;
+  border-radius: 10px;
+}
+
+.about-text {
+  flex: 1;
+  padding: 50px;
+}
+.about-text h2{
+  font-size: 40px;
+}
+.about-text p{
+  font-size: 25px;
+}
+
+/* Programs */
+.programs {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.program-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.program-card {
+  background: white;
+  width: 220px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+}
+.program-card p{
+  color:red;
+}
+
+.program-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.program-card button {
+  background: #0a0a0a;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.pricing-section {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.pricing-section h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+/* Container */
+.pricing-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* Card Design */
+.pricing-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 25px 20px;
+  width: 230px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+}
+
+.pricing-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.price.premium {
+  color: #1a73e8;
+}
+
+.price.standard {
+  color: #e53935;
+}
+
+/* Trial / No Trial Badges */
+.no-trial,
+.trial {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.no-trial {
+  background-color: #000;
+}
+
+.trial.blue {
+  background-color: #1a73e8;
+}
+
+.trial.red {
+  background-color: #e53935;
+}
+
+/* List Items */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  text-align: left;
+}
+
+ul li {
+  font-size: 12px;
+  margin: 8px 0;
+}
+
+.check {
+  color: green;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.cross {
+  color: red;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap:10px;
+}
+
+.subscribe-btn {
+  background-color: #e53935;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.subscribe-btn:hover {
+  background-color: #c62828;
+}
+
+.view-btn {
+  background: transparent;
+  border: 1px solid #ccc;
+  padding: 7px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.view-btn:hover {
+  background-color: #f3f3f3;
+}
+
+/* Trainers Section */
+.trainers-section {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.trainers-section h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.trainers-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.trainer-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  width: 240px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.trainer-card:hover {
+  transform: translateY(-5px);
+}
+
+.trainer-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.trainer-card h3 {
+  color: #d32f2f;
+  margin: 8px 0;
+}
+.trainer-card p{
+  color: #d32f2f;
+  font-size: 12px;
+}
+
+/* FAQ Section */
+.faq-section {
+  background-color: #fafafa;
+  padding: 60px 20px;
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.faq-item {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 20px;
+  margin-bottom: 15px;
+}
+
+.faq-item h3 {
+  font-size: 32px;
+  color: #000;
+  margin-bottom: 10px;
+}
+.faq-item p{
+  font-size: 20px;
+}
+
+/* Footer */
+.footer {
+  gap:50%;
+  color: #fff;
+  padding: 50px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 20px;
+}
+
+.footer-column h4 {
+  color: #070707;
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  
+}
+
+.footer-column ul li {
+  margin: 6px 0;
+  color: #0e0d0d;
+  font-size: 20px;
+}
+
+.footer-column p {
+  color: #0a0a0a;
+  line-height: 1.5;
+}
+
+.social-icons a {
+  margin-right: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 28px;
+}
+.icons h3{
+  text-align: right;
+  font-size: 20px;
+  color: #000;
+  text-shadow: 4px 6px 15px rgba(0, 0, 0, 0.1);
+  position:relative;
+}
+.icons img{
+  gap:80%;
+}
+
+.footer-bottom {
+  text-align: center;
+}
+.footer-bottom p{
+  color: black;
+  text-shadow: #333;
+}
+
+.footer-bottom a {
+  color: #141414;
+  text-decoration: none;
+  margin: 0 5px;
+  font-weight: bold;
+}
+
+
+
+
+    </style>
+</head>
+<body>
+      <header class="navbar">
+    <div class="logo"><img src="logo2.png" alt="images" width="150">  </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="fitness home.html">Home</a></li>
+        <li><a href="fitness program.html">Programs</a></li>
+        <li><a href="fitness tracking.html">Tracking</a></li>
+        <li><a href="fitness subcription.html">Subscriptions</a></li>
+        <li><a href="fitness Blog.html">Blogs</a></li>
+        <li><a href="fitness contact.html">Contact us</a></li>
+      </ul>
+        <!-- Search Bar -->
+    </nav>
+    <div class="search-box">
+    <input type="text" placeholder="Search programs">
+    <i class="fas fa-search"></i>
+  </div>
+
+    <button class="register-btn">Register</button>
+
+    <br><br>
+    
+    
+  </header>
+    <!-- Hero Section -->
+  <section class="hero">    
+    <div class="hero-content">
+      <h1>Transform Your Body</h1>
+      <p>Lead Your Life</p>
+      <div class="hero-buttons">
+        <button class="start-btn">Start Journey</button>
+        <button class="enquiry-btn">Enquiry  <i class="fa-solid fa-arrow-right"></i>
+</button>
+      </div>
+      <p class="hero-subtext">
+        A personalized fitness journey designed to help you build strength, burn fat and boost confidence with expert trainers, proven programs and real results.
+      </p>
+    </div>
+    </div>
+    <div class="ratings">
+        <div class="avatars">
+            <img src="Joey Nicotra.png" alt="user" width="60">
+             <img src="rating1.avif" alt="user" width="60">
+            <img src="rating2.avif" alt="user" width="60">
+            <img src="rating3.jpg" alt="user" width="60">
+            <img src="plus (1).png" alt="user" width="60" filter="brightness(100%)">           
+        </div>
+                <p>4.9 Ratings+ <br><span>Trusted by 50k customers</span></p>
+      </div>
+
+</div>
+
+  </section>
+  <!-- Why Choose Us -->
+  <section class="why-choose">
+    <h2>Why Choose Us</h2>
+    <div class="features">
+      <div class="feature-card">
+        <img src="expert.png" alt="Expert Trainers">
+        <p>Expert Trainers</p>
+      </div>
+      <div class="feature-card">
+        <img src="flexible.png" alt="Flexible Options">
+        <p>Flexible Options</p>
+      </div>
+      <div class="feature-card">
+        <img src="cutting edge.png" alt="Cutting-Edge Tracking">
+        <p>Cutting-Edge Tracking</p>
+      </div>
+      <div class="feature-card">
+        <img src="community.png" alt="Community Support">
+        <p>Community Support</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us -->
+  <section class="about">
+     <hr>
+    <div class="about-image">
+      <img src="side image.png" alt="About Us">
+    </div>
+    <div class="about-text">
+      <h2>About Us</h2>
+      <p>
+        We're passionate about helping you become the strongest version of yourself. With certified trainers, science-backed programs, and a community that motivates you every step of the way, we make fitness simple, accessible, and effective — for everyone.
+      </p>
+    </div>
+     <hr>
+  </section>
+
+  <!-- Popular Programs -->
+  <section class="programs">
+    <h2>Popular Programs</h2>
+    <div class="program-cards">
+      <div class="program-card">
+        <h3>Yoga for Beginners</h3>
+        <p style="color: black; font-style:normal; font-size: 14px;">6 weeks</p>
+        <img src="beginners.png" alt="Yoga for Beginners">
+        <h3>Improve Flexibility</h3>
+        <p>Trainer: Thompson</p>
+        <p>Rupees: 2500/Month</p>
+        <button>Start now</button>
+      </div>
+
+      <div class="program-card">
+        <h3>HIIT & Cross Fit</h3>
+        <p style="color: black; font-style:normal; font-size: 14px;">6 weeks</p>
+        <img src="improve.png" alt="HIIT & Cross fit">
+                <h3>Improve Flexibility</h3>
+        <p>Trainer: Thompson</p>
+        <p>Rupees: 2500/Month</p>
+        <button>Start now</button>
+      </div>
+
+      <div class="program-card">
+        <h3>Nutrition for Beginners</h3>
+        <p style="color: black; font-style:normal; font-size: 14px;">6 weeks</p>
+        <img src="nutrition.png" alt="Nutrition for Beginners">
+                <h3>Improve Flexibility</h3>
+        <p>Trainer: Thompson</p>
+        <p>Rupees: 2500/Month</p>
+        <button>Start now</button>
+      </div>
+
+      <div class="program-card">
+        <h3>Cardio</h3>
+        <p style="color: black; font-style:normal; font-size: 14px;">6 weeks</p>
+        <img src="cardio.png" alt="Cardio">
+                <h3>Improve Flexibility</h3>
+        <p>Trainer: Thompson</p>
+        <p>Rupees: 2500/Month</p>
+        <button>Start now</button>
+      </div>
+    </div>
+  </section>
+    <!-- Subscription Section -->
+  <section class="pricing-section">
+    <h2>Subscription</h2>
+
+    <div class="pricing-container">
+
+      <!-- Basic Plan -->
+      <div class="pricing-card">
+        <h3>Basic Plan</h3>
+        <p class="price">$7/Mon</p>
+        <span class="no-trial">No Free Trail</span>
+        <ul>
+          <li><span class="check">✔</span> Limited Access only</li>
+          <li><span class="cross">✖</span> Group challenges</li>
+          <li><span class="cross">✖</span> All Resources</li>
+          <li><span class="cross">✖</span> Nutrition tracking</li>
+          <li><span class="cross">✖</span> Trainer support</li>
+        </ul>
+        <div class="button-group">
+          <button class="subscribe-btn">Subscribe Now</button>
+          <button class="view-btn">View detail</button>
+        </div>
+      </div>
+
+      <!-- Premium Plan -->
+      <div class="pricing-card highlight">
+        <h3>Premium Plan</h3>
+        <p class="price premium">$39/Mon</p>
+        <span class="trial blue">14 Days Free Trail</span>
+        <ul>
+          <li><span class="check">✔</span> Access to advanced workouts</li>
+          <li><span class="check">✔</span> Group challenges</li>
+          <li><span class="check">✔</span> All Resources</li>
+          <li><span class="check">✔</span> Nutrition tracking</li>
+          <li><span class="check">✔</span> Trainer support</li>
+        </ul>
+        <div class="button-group">
+          <button class="subscribe-btn">Subscribe Now</button>
+          <button class="view-btn">View detail</button>
+        </div>
+      </div>
+
+      <!-- Standard Plan -->
+      <div class="pricing-card">
+        <h3>Standard Plan</h3>
+        <p class="price standard">$19/Mon</p>
+        <span class="trial red">7 Days Free Trail</span>
+        <ul>
+          <li><span class="check">✔</span> Access to advanced workouts</li>
+          <li><span class="check">✔</span> Group challenges</li>
+          <li><span class="cross">✖</span> All Resources</li>
+          <li><span class="cross">✖</span> Nutrition tracking</li>
+          <li><span class="cross">✖</span> Trainer support</li>
+        </ul>
+        <div class="button-group">
+          <button class="subscribe-btn">Subscribe Now</button>
+          <button class="view-btn">View detail</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+        <!-- Trainers Section -->
+  <section class="trainers-section">
+    <h2>Our Trainers</h2>
+    <div class="trainers-container">
+      <div class="trainer-card">
+        <img src="emma thomson.png" alt="Emma Thompson">
+        <h3>Emma Thompson</h3>
+        <p><strong>Specialty:</strong> Nutrition & Weight Loss</p>
+        <p><strong>Certifications:</strong> ACE Certified Specialist</p>
+        <p><strong>Experience:</strong> 7 years in nutrition & training</p>
+      </div>
+      <div class="trainer-card">
+        <img src="john.png" alt="John Carter">
+        <h3>John Carter</h3>
+        <p><strong>Specialty:</strong> Yoga & Mindfulness</p>
+        <p><strong>Certifications:</strong> Yoga Alliance RYT-100</p>
+        <p><strong>Experience:</strong> 6 years in holistic wellness</p>
+      </div>
+
+      <div class="trainer-card">
+        <img src="sophia.png" alt="Sophia Mart">
+        <h3>Sophia Mart</h3>
+        <p><strong>Specialty:</strong> Nutrition & Weight Loss</p>
+        <p><strong>Certifications:</strong> ACE Certified Specialist</p>
+        <p><strong>Experience:</strong> 7 years in nutrition & training</p>
+      </div>
+
+      <div class="trainer-card">
+        <img src="david.png" alt="David Thompson">
+        <h3>David Thompson</h3>
+        <p><strong>Specialty:</strong> HIIT & CrossFit</p>
+        <p><strong>Certifications:</strong> CrossFit Level 2 Coach</p>
+        <p><strong>Experience:</strong> 10 years in functional fitness</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    <div class="faq-item">
+      <h3>1. Do I need to be fit before joining?</h3>
+      <p>Not at all! All our programs are designed for all levels — from beginners to advanced athletes. Trainers adjust workouts based on your ability.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>2. What types of classes do you offer?</h3>
+      <p>We offer a wide range: HIIT, Strength Training, Yoga, Pilates, CrossFit, Spin, Zumba, Boxing, and more.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>3. Can I try a class before committing?</h3>
+      <p>Yes! We offer a free trial class so you can experience our workouts before signing up.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>4. What equipment do I need for online classes?</h3>
+      <p>Most classes require just a mat and comfortable workout gear. Some strength classes may recommend dumbbells or resistance bands.</p>
+    </div>
+  </section>
+<hr>
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-container">
+          <img src="logo2.png" ali="logo" width="100" height="80" gap="40%">
+      <div class="footer-column">
+        <h4>About Us</h4>
+        <ul>
+          <li>Who We Are</li>
+          <li>Our Mission</li>
+          <li>How It Works</li>
+          <li>Success</li>
+          <li>Courses</li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul>
+          <li>Browse</li>
+          <li>Packages</li>
+          <li>Categories</li>
+          <li>Support</li>
+          <li>Blog</li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Feature</h4>
+        <ul>
+          <li>HIIT</li>
+          <li>Strength Yoga</li>
+          <li>Cardio</li>
+          <li>Cycling</li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Contact & Social</h4>
+        <p>123 Saik Street, Chennai, TN</p>
+        <p>+91-7867980-688</p>
+        <p>Fitness@fitnesscenter.com</p>
+        <div class="social-icons">
+          <a href="#">🌐</a>
+          <a href="#">📘</a>
+          <a href="#">🐦</a>
+          <a href="#">📸</a>
+        </div>
+      </div>
+        <img src="gym.png" alt="gym" width="180" height="150">
+              <div class="icons" position="right">          
+          <h3>Follow Us On:</h3>
+            <img src="you type.png" alt="icon" width="30">
+             <img src="google icon.webp" alt="icon" width="30">
+            <img src="facebk.png" alt="icon" width="30">
+          </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Fitness Center. All rights reserved.</p>
+      <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
+    </div>
+
+      </footer>
+
+
+
+
+</body>
+</html>

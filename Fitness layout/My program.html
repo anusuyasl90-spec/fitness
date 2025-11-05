@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Program</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #d8d2d2;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e7dbdb;
+  padding: 15px 50px;
+  box-shadow: 0 2px 5px rgba(14, 13, 13, 0.1);
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  font-size: 20px;
+}
+/* Navbar Search Box */
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #0f0f0f;
+  border-radius: 10px;
+  padding:10px;
+  overflow: hidden;
+  margin: 0 10px;
+  width: 200px;
+  transition: all 0.3s ease;
+}
+
+.search-box input{
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  flex: 1;
+  font-size: 1.2em;
+  width:50%;
+  font-weight: bold;
+}
+
+.search-box button {
+  background: rgb(12, 12, 12);
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #0c0c0c;
+  font-size: 1em;
+}
+.search-box:hover {
+  border-color: #0c0b0b;
+  box-shadow: 0 0 5px rgba(255,77,77,0.4);
+}
+.profile-container {
+  position: relative;
+}
+
+.profile {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #ddd;
+  transition: transform 0.2s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+}
+
+/* Dropdown menu (hidden by default) */
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  width: 300px;
+  text-align: left;
+  z-index: 10;
+}
+
+.dropdown a {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  font-size:20px;
+}
+
+.dropdown a:hover {
+  background: #f4f4f4;
+}
+
+/* Show dropdown on hover */
+.profile:hover .dropdown {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .search-box {
+    width: 50%;
+    margin: 10px 0;
+  }
+}
+/* ====== MAIN CONTENT ====== */
+.program-section {
+  padding: 60px 100px;
+  text-align: center;
+}
+
+.program-section h2 {
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+/* Premium Plan Card */
+.premium-card {
+  background: white;
+  width: 400px;
+  margin: 0 auto 60px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  text-align: left;
+  position: relative;
+}
+
+.premium-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.premium-header img{
+    width:20px;
+}
+
+.trial {
+  background: #e0f2ff;
+  color: #007BFF;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.price {
+  color: #007BFF;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.progress-chart {
+  width: 100%;
+  height: auto;
+  margin: 10px 0 15px;
+}
+
+.features {
+  list-style: none;
+  color: #333;
+  line-height: 1.8;
+}
+
+.start-btn {
+  background: #ff3b2f;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  position: absolute;
+  right: -140px;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Weight Loss Section */
+.weight-loss {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+}
+
+.image-box {
+  position: relative;
+  width: 600px;
+}
+
+.image-box img {
+  width: 640px;
+  display: flex;
+
+  border-radius: 6px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: #ff3b2f;
+  color: white;
+  width: 100%;
+  padding: 15px;
+  border-radius: 0 0 6px 6px;
+  font-size: 14px;
+}
+
+.overlay h4 {
+  margin-bottom: 8px;
+}
+
+.overlay .stars {
+  margin-top: 5px;
+  color: gold;
+  font-size: 18px;
+}
+
+.details {
+  max-width: 450px;
+  text-align: left;
+}
+
+.details h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.details p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+  color: #444;
+}
+
+.details ul {
+  list-style: none;
+  line-height: 1.8;
+}
+/* Footer */
+.footer {
+gap:10%;
+  background-color: #fff;
+    padding: 5px 10px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 20px;
+}
+
+.footer-column h4 {
+  color: #070707;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  
+}
+
+.footer-column ul li {
+  margin: 6px 0;
+  color: #0e0d0d;
+  font-size: 20px;
+}
+
+.footer-column p {
+  color: #0a0a0a;
+  line-height: 1.5;
+}
+
+.social-icons a {
+  margin-right: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 28px;
+}
+.icons h3{
+  text-align: right;
+  font-size: 20px;
+  color: #000;
+  text-shadow: 4px 6px 15px rgba(0, 0, 0, 0.1);
+  position:relative;
+}
+.icons img{
+  gap:80%;
+}
+
+.footer-bottom {
+  text-align: center;
+}
+.footer-bottom p{
+  color: black;
+  text-shadow: #333;
+}
+
+.footer-bottom a {
+  color: #141414;
+  text-decoration: none;
+  margin: 0 5px;
+  font-weight: bold;
+}
+
+
+</style>
+
+</head>
+<body>
+    <header class="navbar">
+    <div class="logo"><img src="logo2.png" alt="images" width="150">  </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="fitness home.html">Home</a></li>
+        <li><a href="fitness program.html">Programs</a></li>
+        <li><a href="fitness tracking.html">Tracking</a></li>
+        <li><a href="fitness subcription.html">Subscriptions</a></li>
+        <li><a href="fitness Blog.html">Blogs</a></li>
+        <li><a href="fitness contact.html">Contact us</a></li>
+      </ul>
+        <!-- Search Bar -->
+    </nav>
+    <div class="search-box">
+    <input type="text" placeholder="Search programs">
+    <i class="fas fa-search"></i>
+  </div>
+  <div class="profile-container">
+  <div class="profile">
+    <img src="Joey Nicotra.png" alt="images" width="50">
+    <div class="dropdown">
+        <h3>My Accounts</h3>
+        <hr>
+      <a href="personal information.html">Personal Information</a>
+      <a href="My program.html">My Program</a>
+      <a href="password managar.html">Password Manager</a>
+      <a href="logout.html"> Logout</a>
+ 
+    </div>
+  </div>
+</div>
+    <img src="heart.png" class="icon" alt="icons" width="30">
+    <img src="bell.png" alt="bell" width="30">
+    <br><br>  
+  </header>
+    <!-- ========== MAIN CONTENT ========== -->
+<section class="program-section">
+  <h2>My Program and Subscription</h2>
+
+  <!-- Premium Plan Card -->
+  <div class="premium-card">
+    <div class="premium-header">
+      <h3>Premium Plan</h3>
+    <p class="price">$39/Mon</p>
+    <img src="progress chart.png" alt="Weekly Progress" class="progress-chart">
+    </div>
+    <div>
+      <span class="trial">14 Days Free Trial</span>
+    <ul class="features">
+      <li>✅ Access to advanced workouts</li>
+      <li>✅ Group challenges</li>
+      <li>✅ All resources</li>
+      <li>✅ Nutrition tracking</li>
+      <li>✅ Trainer support</li>
+    </ul>
+</div>
+    <button class="start-btn">Start Program</button>
+  </div>
+
+  <!-- Weight Loss Program Section -->
+  <div class="weight-loss">
+    <div class="image-box">
+      <img src="weightloass.png" alt="Weight Loss Program" height="500">
+      <div class="overlay">
+       <h4>Weight loss program</h4>
+        <p>30 days Duration Period</p>
+        <p>Rs.2,500/Month</p>
+        <p>Trainer : Sofiya Thompson</p>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+
+    <div class="details">
+      <h3>The Weight Loss Program - 2025</h3>
+      <p>
+        Shed fat, boost energy, and build lifelong healthy habits with our expertly designed
+        Weight Loss Program. This plan is ideal for individuals aiming to burn calories efficiently,
+        tone their body, and stay motivated throughout their journey.
+      </p>
+
+      <h4>Whats: Included</h4>
+      <ul>
+        <li>✅ Daily Guided Workouts</li>
+        <li>✅ Nutrition & Meal Plans</li>
+        <li>✅ Weekly Progress Tracking</li>
+        <li>✅ Motivational Challenges</li>
+        <li>✅ Expert Tips & Coaching</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-container">
+          <img src="logo2.png" ali="logo" width="100" height="80" gap="40%">
+      <div class="footer-column">
+        <h4>About Us</h4>
+        <ul>
+          <li>Who We Are</li>
+          <li>Our Mission</li>
+          <li>How It Works</li>
+          <li>Success</li>
+          <li>Courses</li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul>
+          <li>Browse</li>
+          <li>Packages</li>
+          <li>Categories</li>
+          <li>Support</li>
+          <li>Blog</li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Feature</h4>
+        <ul>
+          <li>HIIT</li>
+          <li>Strength Yoga</li>
+          <li>Cardio</li>
+          <li>Cycling</li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Contact & Social</h4>
+        <p>123 Saik Street, Chennai, TN</p>
+        <p>+91-7867980-688</p>
+        <p>Fitness@fitnesscenter.com</p>
+      </div>
+        <img src="gym.png" alt="gym" width="180" height="150">
+              <div class="icons" position="right">          
+          <h3>Follow Us On:</h3>
+            <img src="you type.png" alt="icon" width="30">
+             <img src="google icon.webp" alt="icon" width="30">
+            <img src="facebk.png" alt="icon" width="30">
+          </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Fitness Center. All rights reserved.</p>
+      <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
+    </div>
+
+      </footer>
+
+</body>
+</html>
